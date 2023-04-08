@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.teeeee">
+    package="com.example.theme_simulator">
    <application
-        android:label="teeeee"
+        android:label="theme_simulator"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
