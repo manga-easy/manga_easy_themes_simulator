@@ -1,6 +1,7 @@
 import 'package:coffee_cup/coffe_cup.dart';
 import 'package:flutter/material.dart';
 import 'package:theme_simulator/config_color_page.dart';
+import 'package:theme_simulator/share_theme_service.dart';
 import 'package:theme_simulator/theme_service.dart';
 
 class HomePage extends StatefulWidget {
@@ -12,6 +13,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final switchColor = ValueNotifier(true);
+  final ShareThemeService shareThemeService = ShareThemeService();
   @override
   void initState() {
     ThemeService().addListener(() {
@@ -24,7 +26,34 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ThemeService.backgroundColor,
-      appBar: AppBar(),
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: Icon(Icons.share),
+            onPressed: () async {
+              final name = await showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: Text('Digite o nome do tema'),
+                    content: TextField(
+                        autofocus: true,
+                        onSubmitted: (value) {
+                          shareThemeService.shareTheme(value);
+                        }),
+                    actions: <Widget>[
+                      TextButton(
+                        child: Text('Cancelar'),
+                        onPressed: () => Navigator.of(context).pop(),
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
+          )
+        ],
+      ),
       drawer: const Drawer(
         child: ConfigColorPage(),
       ),
