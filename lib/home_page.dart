@@ -29,13 +29,13 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         actions: [
           IconButton(
-            icon: Icon(Icons.share),
-            onPressed: () async {
-              final name = await showDialog(
+            icon: const Icon(Icons.share),
+            onPressed: () {
+              showDialog(
                 context: context,
                 builder: (BuildContext context) {
                   return AlertDialog(
-                    title: Text('Digite o nome do tema'),
+                    title: const Text('Digite o nome do tema'),
                     content: TextField(
                         autofocus: true,
                         onSubmitted: (value) {
@@ -43,7 +43,7 @@ class _HomePageState extends State<HomePage> {
                         }),
                     actions: <Widget>[
                       TextButton(
-                        child: Text('Cancelar'),
+                        child: const Text('Cancelar'),
                         onPressed: () => Navigator.of(context).pop(),
                       ),
                     ],
