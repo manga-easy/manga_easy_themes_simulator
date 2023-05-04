@@ -30,7 +30,7 @@ class ThemeService extends ChangeNotifier {
 
   static Color selectText = Colors.grey.shade900;
 
-  @override
+
   ColorScheme get colorScheme => const ColorScheme.dark()
       .copyWith(
         primary: Colors.white,

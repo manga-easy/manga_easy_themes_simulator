@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
           title: 'Theme simulator',
           theme: ThemeService().returnThemeData(),
           home: const HomePage(),
+          debugShowCheckedModeBanner: false,
         );
       },
     );

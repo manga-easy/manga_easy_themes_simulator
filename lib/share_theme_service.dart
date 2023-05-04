@@ -1,6 +1,5 @@
 import 'dart:convert';
-
-import 'package:share/share.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:theme_simulator/theme_service.dart';
 
 class ShareThemeService {
